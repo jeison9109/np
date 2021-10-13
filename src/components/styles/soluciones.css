@@ -1,0 +1,15 @@
+.container-soluciones {
+  position: relative;
+}
+
+.fondsoluciones {
+  width: 100%;
+  height: auto;
+}
+
+@media screen and (max-width: 950px) {
+  .container-contactenos {
+    position: relative;
+    margin-top: 15px;
+  }
+}

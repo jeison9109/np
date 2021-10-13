@@ -13,7 +13,7 @@ export const Footer = () => {
               <p className="text-justify">
                 Nestlé Professional entrega soluciones
                 <i> ALIMENTOS Y BEBIDAS</i> que le permiten a nuestros clientes
-                <i> CRECER Y DELEITAR</i>a sus consumidores.
+                <i> CRECER Y DELEITAR</i> a sus consumidores.
               </p>
             </div>
 
@@ -42,16 +42,16 @@ export const Footer = () => {
               <h6>Conocenos</h6>
               <ul className="footer-links">
                 <li>
-                  <a>Nosotros</a>
+                  <a>Home</a>
                 </li>
                 <li>
-                  <a>Direccion Nacional</a>
+                  <a>Quienes Somos</a>
                 </li>
                 <li>
-                  <a>Valores y Principios</a>
+                  <a>Soluciones</a>
                 </li>
                 <li>
-                  <a>Organigrama</a>
+                  <a>Portafolio</a>
                 </li>
               </ul>
             </div>

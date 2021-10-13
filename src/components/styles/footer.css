@@ -57,7 +57,7 @@
 
 @media (max-width: 991px) {
   .site-footer {
-    display: flex;
+    display: block;
     width: 100%;
     height: auto;
     background-color: #000000;
@@ -137,6 +137,6 @@
   .social-icons li.title {
     display: block;
     margin-right: 0;
-    font-weight: 600;
+    font-weight: 200;
   }
 }

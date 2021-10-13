@@ -79,7 +79,7 @@
     border-left: none;
   }
   .nav-menu.active {
-    width: 160px;
+    width: 190px;
     left: 0px;
     opacity: 1;
     transition: all 0.5s ease;
@@ -92,14 +92,15 @@
   }
 
   .nav-links {
-    padding: 0.2rem;
+    padding: 0.1rem;
     width: 100%;
     display: table;
+    background-color: rgb(210, 204, 212);
+    border-radius: 50px;
   }
 
   .nav-icon {
     display: flex;
-
     position: absolute;
     top: 80px;
     right: 0;
