@@ -1,0 +1,71 @@
+/*.video-js {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  background-color: blueviolet;
+}*/
+
+.container-video {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  margin-bottom: 15px;
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: black;
+}
+
+.react-player {
+  background-color: black;
+}
+
+.container-v {
+  display: flex;
+  justify-content: center;
+  padding-top: 110px;
+  padding-bottom: 100px;
+  background-color: black;
+}
+
+@media screen and (max-width: 550px) {
+  .container-v {
+    padding-bottom: 15px;
+    padding-top: 35px;
+  }
+}
+@media screen and (min-width: 350px) {
+  .container-v {
+    padding-bottom: 5px;
+    padding-top: 5px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .container-v {
+    margin-top: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .container-v {
+    padding-bottom: 110px;
+    padding-top: 120px;
+  }
+}
+@media screen and (max-width: 1250px) {
+  .container-v {
+    padding-bottom: 110px;
+    padding-top: 120px;
+  }
+}
+
+@media screen and (max-width: 1650px) {
+  .container-v {
+    padding-bottom: 110px;
+    padding-top: 120px;
+  }
+}
