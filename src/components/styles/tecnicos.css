@@ -1,0 +1,30 @@
+.container-candi {
+  margin-top: 0px;
+  padding: 5px;
+  background-color: #000000;
+}
+
+.container-card {
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  width: 18rem;
+  margin: 15px;
+}
+
+.card-img {
+  margin-top: 10px;
+  width: 100%;
+  height: auto;
+  border: solid 2px red;
+}
+
+@media screen and (max-width: 950px) {
+  .fondcandi {
+    display: flex;
+    height: 20px;
+    margin-top: 40px;
+  }
+}

@@ -10,10 +10,47 @@ export const Soluciones = () => {
   return (
     <>
       <div className="container">
-        <h1>Soluciones</h1>
+        <h1 className="font-effect-fire">Soluciones</h1>
       </div>
       <div className="container-v">
         <VideoNp />
+      </div>
+
+      <div className="container-button">
+        <NavLink exact to="/formulario" activeClassName="active">
+          <h3
+            style={{ color: "white" }}
+            className="container-contactenos animate__animated animate__rotateIn"
+          >
+            Contactenos{" "}
+            <MdAdsClick
+              spin
+              style={{
+                color: "white",
+                fontSize: "2rem",
+                marginRight: "10px",
+              }}
+            />
+          </h3>{" "}
+        </NavLink>
+      </div>
+      <div className="container-button">
+        <NavLink exact to="/tecnico" activeClassName="active">
+          <h3
+            style={{ color: "white" }}
+            className="container-contactenos animate__animated animate__rotateIn"
+          >
+            Verificar Tecnico{" "}
+            <MdAdsClick
+              spin
+              style={{
+                color: "white",
+                fontSize: "2rem",
+                marginRight: "10px",
+              }}
+            />
+          </h3>{" "}
+        </NavLink>
       </div>
 
       <div className="container-soluciones">
@@ -29,24 +66,7 @@ export const Soluciones = () => {
             top: "10px",
             marginLeft: "15px",
           }}
-        >
-          <NavLink exact to="/formulario" activeClassName="active">
-            <h3
-              style={{ color: "white" }}
-              className="container-contactenos animate__animated animate__rotateIn"
-            >
-              Contactenos{" "}
-              <MdAdsClick
-                spin
-                style={{
-                  color: "white",
-                  fontSize: "2rem",
-                  marginRight: "10px",
-                }}
-              />
-            </h3>{" "}
-          </NavLink>
-        </div>
+        ></div>
       </div>
       <Footer />
     </>

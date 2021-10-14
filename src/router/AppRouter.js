@@ -6,6 +6,8 @@ import { Nosotros } from "../components/screens/Nosotros";
 import { Soluciones } from "../components/screens/Soluciones";
 import { Portafolio } from "../components/screens/Portafolio";
 import { Formulario } from "../components/screens/Formulario";
+import { TecnicoScreen } from "../components/tecnicos/TecnicoScreen";
+import { TecnicoPerfil } from "../components/tecnicos/TecnicoPerfil";
 
 export default function AppRouter() {
   return (
@@ -19,6 +21,8 @@ export default function AppRouter() {
           <Route exact path="/soluciones" component={Soluciones} />
           <Route exact path="/portafolio" component={Portafolio} />
           <Route exact path="/formulario" component={Formulario} />
+          <Route exact path="/tecnico" component={TecnicoScreen} />
+          <Route exact path="/tecnic/:tecnicoId" component={TecnicoPerfil} />
         </Switch>
       </Router>
     </>

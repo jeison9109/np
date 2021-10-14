@@ -14,10 +14,6 @@ import fondnos from "../../images/coffe2.jpg";
 export const Nosotros = () => {
   return (
     <>
-      <div className="container">
-        <h1> A quien nos dirigimos?</h1>
-      </div>
-
       <Carouseles />
 
       <div
@@ -31,6 +27,7 @@ export const Nosotros = () => {
             className="col-md-12"
             style={{ position: "absolute", top: "30px" }}
           >
+            <h1 className="font-effect-fire">Nos dirigimos</h1>
             <li>
               <h3 style={{ color: "white" }}>
                 {" "}

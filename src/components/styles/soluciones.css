@@ -7,6 +7,12 @@
   height: auto;
 }
 
+.container-button {
+  display: flex;
+  justify-content: center;
+  background-color: black;
+}
+
 @media screen and (max-width: 950px) {
   .container-contactenos {
     position: relative;
