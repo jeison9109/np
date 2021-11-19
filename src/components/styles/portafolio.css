@@ -1,0 +1,17 @@
+.container-portafolio {
+  display: flex;
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+.fondportafolio {
+  width: 100%;
+  height: auto;
+}
+
+.container-modal {
+  display: flex;
+  justify-content: center;
+  background-color: black;
+}

@@ -1,0 +1,13 @@
+.container-perfil {
+  margin-top: 0px;
+  display: flex;
+  padding: 5px 15px;
+  justify-content: center;
+  background-color: #000000;
+}
+
+@media screen and (max-width: 950px) {
+  .container-perfil {
+    margin-top: 0px;
+  }
+}
