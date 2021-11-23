@@ -1,5 +1,5 @@
-import React from "react";
-import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { BrowserRouter as Router, Switch, Redirect } from "react-router-dom";
 import { Navbar } from "../components/Navbar";
 import { Home } from "../components/screens/Home";
 import { Nosotros } from "../components/screens/Nosotros";
@@ -10,30 +10,67 @@ import { TecnicoScreen } from "../components/tecnicos/TecnicoScreen";
 import { TecnicoPerfil } from "../components/tecnicos/TecnicoPerfil";
 import { Search } from "../components/screens/Search";
 import { AuthRouter } from "../router/AuthRouter";
-import { Provider } from "react-redux";
-import { store } from "../store/store";
-import { PruebaYei } from "../components/screens/PruebaYei";
+import { useDispatch } from "react-redux";
+import { firebase } from "../firebase/firebase-config";
+import { login } from "../actions/auth";
+import { NestleProf } from "../components/screens/NestleProf";
+import { PrivateRouter } from "./PrivateRouter";
+import { PublicRouter } from "./PublicRouter";
 
 export default function AppRouter() {
+  const dispatch = useDispatch();
+
+  const [checking, setChecking] = useState(true);
+  const [isLoggedIn, setisLoggedIn] = useState(false);
+
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged((user) => {
+      //validacion de autenticacion
+      if (user?.uid) {
+        dispatch(login(user.uid, user.displayName)); //import la accion
+        setisLoggedIn(true);
+      } else {
+        setisLoggedIn(false);
+      }
+      setChecking(false);
+    });
+  }, [dispatch, setChecking, setisLoggedIn]);
+
+  if (checking) {
+    return <h1>Wait...</h1>;
+  }
+
   return (
     <>
-      <Provider store={store}>
-        <Router>
-          <Navbar />
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/nosotros" component={Nosotros} />
-            <Route exact path="/soluciones" component={Soluciones} />
-            <Route exact path="/portafolio" component={Portafolio} />
-            <Route exact path="/formulario" component={Formulario} />
-            <Route exact path="/tecnico" component={TecnicoScreen} />
-            <Route exact path="/tecnic/:tecnicoId" component={TecnicoPerfil} />
-            <Route exact path="/search" component={Search} />
-            <Route path="/auth" component={AuthRouter} />
-            <Route exact path="/PruebaYei" component={PruebaYei} />
-          </Switch>
-        </Router>
-      </Provider>
+      <Router>
+        <Navbar />
+        <Switch>
+          <PublicRouter exact path="/home" component={Home} />
+          <PublicRouter exact path="/nosotros" component={Nosotros} />
+          <PublicRouter exact path="/soluciones" component={Soluciones} />
+          <PublicRouter exact path="/portafolio" component={Portafolio} />
+          <PublicRouter exact path="/formulario" component={Formulario} />
+          <PublicRouter exact path="/tecnico" component={TecnicoScreen} />
+          <PublicRouter
+            exact
+            path="/tecnic/:tecnicoId"
+            component={TecnicoPerfil}
+          />
+          <PublicRouter exact path="/search" component={Search} />
+          <PublicRouter
+            path="/auth"
+            isAuthenticated={isLoggedIn}
+            component={AuthRouter}
+          />
+          <PrivateRouter
+            exact
+            isAuthenticated={isLoggedIn}
+            path="/"
+            component={NestleProf}
+          />
+          <Redirect to="/auth/login" />
+        </Switch>
+      </Router>
     </>
   );
 }

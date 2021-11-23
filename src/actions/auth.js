@@ -10,6 +10,35 @@ export const login = (uid, displayName) => ({
   },
 });
 
+//action asincrona por estar conectado con firebase
+export const startLogout = () => {
+  return async (dispatch) => {
+    await firebase.auth().signOut();
+    dispatch(logout());
+  };
+};
+
+export const logout = () => ({
+  type: types.logout,
+});
+
+//Tarea asincrona, se necesita retornar un callback
+export const startRegisterWithEmailPasswordName = (email, password, name) => {
+  return (dispatch) => {
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then(async ({ user }) => {
+        //funcion para actualiar user
+        await user.updateProfile({ displayName: name });
+        dispatch(login(user.uid, user.displayName));
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+};
+
 /*****Accion para auttenticacion de Google****/
 
 export const startGoogleLogin = () => {
@@ -28,8 +57,15 @@ export const startGoogleLogin = () => {
 
 export const startLoginEmailPassword = (email, password) => {
   return (dispatch) => {
-    setTimeout(() => {
-      dispatch(login(123, "pedro"));
-    }, 2500);
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(({ user }) => {
+        //funcion para actualiar user
+        dispatch(login(user.uid, user.displayName));
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
 };

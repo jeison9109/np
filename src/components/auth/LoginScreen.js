@@ -61,7 +61,9 @@ export const LoginScreen = () => {
             </div>
           </div>
           <div className="auth__form_actions">
-            <button className="btn btn-primary btn-lg btn-block">LOGIN</button>
+            <button type="submit" className="btn btn-primary btn-lg btn-block">
+              LOGIN
+            </button>
           </div>
 
           <div className="google-btn" onClick={handleGoogleLogin}>

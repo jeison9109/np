@@ -2,8 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "../../hooks/useForm";
 import validator from "validator";
+import { useDispatch, useSelector } from "react-redux";
+import { removeError, setError } from "../../actions/ui";
+import { startRegisterWithEmailPasswordName } from "../../actions/auth";
 
 export const RegisterScreen = () => {
+  const dispatch = useDispatch();
+  const { msgError } = useSelector((state) => state.ui);
+
   const [formValues, handleInputChange] = useForm({
     name: "Pedro Gomez",
     email: "pedro@gmail.com",
@@ -19,24 +25,25 @@ export const RegisterScreen = () => {
     e.preventDefault(); //Evitar la propagacion del form por el URL
 
     if (isFormValid()) {
-      console.log("formulario correcto");
+      dispatch(startRegisterWithEmailPasswordName(email, password, name));
     }
   };
 
   const isFormValid = () => {
     if (name.trim().length === 0) {
-      console.log("Name is required");
+      dispatch(setError("Name is Required")); //importar setError de las actions
       return false;
     } else if (!validator.isEmail(email)) {
-      console.log("email NO es valido");
+      dispatch(setError("Email is not valid"));
       return false;
     } else if (password !== password2 || password.length < 5) {
-      console.log(
-        "password should be at least characters and matach each other"
+      dispatch(
+        setError("password should be at least characters and matach each other")
       );
       return false;
     }
 
+    dispatch(removeError());
     return true;
   };
 
@@ -49,6 +56,8 @@ export const RegisterScreen = () => {
           autocomplete="off"
           onSubmit={handleRegister}
         >
+          {msgError && <div className="auth__alert-error">{msgError}</div>}
+
           <div className="auth__form_body">
             <h3 className="auth__form_title">Register</h3>
             <div>
