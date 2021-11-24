@@ -4,8 +4,10 @@ import { Sidebar } from "../screens/Sidebar";
 export const NestleProf = () => {
   return (
     <div>
-      <h1>Nestle Professional</h1>
-      <Sidebar />
+      <h1>
+        {" "}
+        <Sidebar />
+      </h1>
     </div>
   );
 };

@@ -53,6 +53,25 @@ export const Soluciones = () => {
         </NavLink>
       </div>
 
+      <div className="container-button">
+        <NavLink exact to="/auth/login" activeClassName="active">
+          <h3
+            style={{ color: "white" }}
+            className="container-contactenos animate__animated animate__rotateIn"
+          >
+            Ingresar al Portal{" "}
+            <MdAdsClick
+              spin
+              style={{
+                color: "white",
+                fontSize: "2rem",
+                marginRight: "10px",
+              }}
+            />
+          </h3>{" "}
+        </NavLink>
+      </div>
+
       <div className="container-soluciones">
         <img
           className="fondsoluciones"

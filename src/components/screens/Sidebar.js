@@ -15,10 +15,10 @@ export const Sidebar = () => {
       <div className="journal__sidebar-navbar">
         <h3 className="mt-5">
           <i className="far fa-moon"></i>
-          <span>Fernando</span>
+          <span>Bienvenido Amigo Professional</span>
         </h3>
 
-        <button className="btn" onClick={handleLogout}>
+        <button className="btn" id="button-logout" onClick={handleLogout}>
           Logout
         </button>
         <hr />

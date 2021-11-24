@@ -5,6 +5,7 @@ import validator from "validator";
 import { useDispatch, useSelector } from "react-redux";
 import { removeError, setError } from "../../actions/ui";
 import { startRegisterWithEmailPasswordName } from "../../actions/auth";
+import Swal from "sweetalert2";
 
 export const RegisterScreen = () => {
   const dispatch = useDispatch();
@@ -31,14 +32,21 @@ export const RegisterScreen = () => {
 
   const isFormValid = () => {
     if (name.trim().length === 0) {
-      dispatch(setError("Name is Required")); //importar setError de las actions
+      //dispatch(setError("Name is Required")); //importar setError de las actions
+      Swal.fire("Error", "Name is Required");
       return false;
     } else if (!validator.isEmail(email)) {
       dispatch(setError("Email is not valid"));
+
+      Swal.fire("Error", "Email is not valid");
       return false;
     } else if (password !== password2 || password.length < 5) {
       dispatch(
         setError("password should be at least characters and matach each other")
+      );
+      Swal.fire(
+        "Error",
+        "password should be at least characters and matach each other"
       );
       return false;
     }

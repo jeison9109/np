@@ -110,6 +110,29 @@ textarea:focus {
   color: #bd6d04;
 }
 
+#button-logout {
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  float: left;
+  width: 100%;
+  border: #fbfbfb solid 4px;
+  cursor: pointer;
+  background-color: #db3934;
+  color: white;
+  font-size: 24px;
+  padding-top: 22px;
+  padding-bottom: 22px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  margin-top: 40px;
+  font-weight: 700;
+}
+
+#button-logout:hover {
+  background-color: rgba(0, 0, 0, 0);
+  color: #bd6d04;
+}
+
 .submit:hover {
   color: #db4d34;
 }

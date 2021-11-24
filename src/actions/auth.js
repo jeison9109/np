@@ -1,5 +1,7 @@
 import { types } from "../types/tpyes";
 import { firebase, googleAuthProvider } from "../firebase/firebase-config";
+import Swal from "sweetalert2";
+import { startLoading, finishLoading } from "./ui";
 
 /*Accion es una simple funcion*/
 export const login = (uid, displayName) => ({
@@ -35,6 +37,7 @@ export const startRegisterWithEmailPasswordName = (email, password, name) => {
       })
       .catch((e) => {
         console.log(e);
+        Swal.fire("Error", e.message, "Error");
       });
   };
 };
@@ -57,15 +60,20 @@ export const startGoogleLogin = () => {
 
 export const startLoginEmailPassword = (email, password) => {
   return (dispatch) => {
+    dispatch(startLoading());
+
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(({ user }) => {
         //funcion para actualiar user
         dispatch(login(user.uid, user.displayName));
+
+        dispatch(finishLoading());
       })
       .catch((e) => {
-        console.log(e);
+        dispatch(finishLoading());
+        Swal.fire("Error", e.message, "Error");
       });
   };
 };
