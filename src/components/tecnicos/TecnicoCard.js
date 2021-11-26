@@ -13,7 +13,7 @@ export const TecnicoCard = ({
     <>
       <div className="row">
         <div className="col-ms-5">
-          <div className="card" style={{ backgroundColor: "grey" }}>
+          <div className="card" style={{ backgroundColor: "black" }}>
             <img
               src={`./assets/tecnicos/${id}.jpg`}
               alt={tecnico}
@@ -22,11 +22,17 @@ export const TecnicoCard = ({
             {/* <img className="card-img" src={cardimg} alt={cardimg} />*/}
 
             <div className="card-body">
-              <h1 className="card-title">{tecnico}</h1>
-              <p className="card-text">{publisher} </p>
-              <p>{departamento}</p>
-              <p>{characters}</p>
-              <Link to={`./tecnic/${id}`}>Más</Link>
+              <h1 className="card-title" style={{ color: "white" }}>
+                {tecnico}
+              </h1>
+              <p className="card-text" style={{ color: "grey" }}>
+                {publisher}{" "}
+              </p>
+              <p style={{ color: "grey" }}>{departamento}</p>
+              <p style={{ color: "grey" }}>{characters}</p>
+              <Link to={`./tecnic/${id}`} style={{ color: "white" }}>
+                Más
+              </Link>
             </div>
           </div>
         </div>

@@ -3,11 +3,11 @@ import { Sidebar } from "../screens/Sidebar";
 
 export const NestleProf = () => {
   return (
-    <div>
+    <>
       <h1>
-        {" "}
         <Sidebar />
+        <hr />
       </h1>
-    </div>
+    </>
   );
 };

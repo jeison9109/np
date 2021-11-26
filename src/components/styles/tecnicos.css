@@ -18,7 +18,7 @@
   margin-top: 10px;
   width: 100%;
   height: auto;
-  border: solid 2px red;
+  border: solid 2px;
 }
 
 @media screen and (max-width: 950px) {

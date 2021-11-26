@@ -16,6 +16,11 @@ import { login } from "../actions/auth";
 import { NestleProf } from "../components/screens/NestleProf";
 import { PrivateRouter } from "./PrivateRouter";
 import { PublicRouter } from "./PublicRouter";
+import { Modelo860 } from "../components/screens/Modelo860";
+import { Modelo630 } from "../components/screens/Modelo630";
+import { ModeloFTP } from "../components/screens/ModeloFTP";
+import { ModeloFTS } from "../components/screens/ModeloFTS";
+import { ModeloCombi } from "../components/screens/ModeloCombi";
 
 export default function AppRouter() {
   const dispatch = useDispatch();
@@ -62,6 +67,12 @@ export default function AppRouter() {
             isAuthenticated={isLoggedIn}
             component={AuthRouter}
           />
+
+          <PublicRouter exact path="/Modelo860" component={Modelo860} />
+          <PublicRouter exact path="/Modelo630" component={Modelo630} />
+          <PublicRouter exact path="/ModeloFTP" component={ModeloFTP} />
+          <PublicRouter exact path="/ModeloFTS" component={ModeloFTS} />
+          <PublicRouter exact path="/ModeloCombi" component={ModeloCombi} />
           <PrivateRouter
             exact
             isAuthenticated={isLoggedIn}

@@ -1,6 +1,5 @@
 import React from "react";
 import "../styles/formulario.css";
-import { Footer } from "./Footer";
 
 export const Form = () => {
   return (
@@ -8,7 +7,7 @@ export const Form = () => {
       <div className="container-form">
         <div id="form-main">
           <div id="form-div">
-            <h1 color="white">CONTACTENOS</h1>
+            <h1 style={{ color: "white" }}>CONTACTENOS</h1>
             <form className="form" autoComplete="off">
               <p className="name">
                 <input
